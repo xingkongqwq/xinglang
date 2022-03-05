@@ -1,24 +1,25 @@
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
+name: CI
+on: push
 jobs:
   build:
-    runs-on: windows-latest
+    name: build
+    runs-on: [windows-latest]
     steps:
-      - uses: actions/checkout@v2
+      - name: Get Code
+        uses: actions/checkout@v2
       - name: Get MSVC
-      - uses: TheMrMilchmann/setup-mvsc-dev@v1
+        uses: TheMrMilchmann/setup-mvsc-dev@v1
         with:
           arch: x64
       - name: Get CMake
-      - uses: lukka/get-cmake@latest
+        uses: lukka/get-cmake@latest
       - name: Build for windows
         run: |
             cmd
             .\build
       - name: Upload
-      - uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
            name: build of windows
            path: bin/xinglang.exe
+
