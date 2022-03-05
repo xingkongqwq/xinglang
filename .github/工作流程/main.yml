@@ -15,7 +15,7 @@ jobs:
         uses: lukka/get-cmake@latest
       - name: Build for windows
         run: |
-            .\build
+            build
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
