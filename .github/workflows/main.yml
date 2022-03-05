@@ -1,0 +1,25 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: [windows-latest]
+    steps:
+      - name: Get latest CMake and ninja and MSVC
+      - uses: actions/checkout@v2
+      - uses: TheMrMilchmann/setup-mvsc-dev@v1
+        with:
+          arch: x64
+      - uses: lukka/get-cmake@latest
+      - name: Build for windows
+        run: |
+            cmd
+            .\build
+      - uses: actions/upload-artifact@v3
+        with:
+           name: build of windows
+           path: bin/xinglang.exe
