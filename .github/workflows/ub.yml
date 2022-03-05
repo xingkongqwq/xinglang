@@ -17,7 +17,7 @@ jobs:
             cmake ..
             make
             ls
-            cp ./xinglang.out ../bin/
+            cp ./xinglang ../bin/
             cd ..
       - name: Upload
         uses: actions/upload-artifact@v3
