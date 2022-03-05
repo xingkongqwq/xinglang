@@ -1,4 +1,4 @@
-name: CI
+name: CIS
 on: push
 jobs:
   build:
@@ -8,7 +8,7 @@ jobs:
       - name: Get Code
         uses: actions/checkout@v2
       - name: Get MSVC
-        uses: TheMrMilchmann/setup-mvsc-dev@v1
+        uses: ilammy/msvc-dev-cmd@v1
         with:
           arch: x64
       - name: Get CMake
