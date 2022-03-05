@@ -16,10 +16,10 @@ jobs:
             cd build
             cmake ..
             make
-            copy .\xinglang ..\bin\
+            copy ./xinglang.out ../bin/
             cd ..
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
            name: build of linux
-           path: bin/xinglang
+           path: bin/xinglang.out
