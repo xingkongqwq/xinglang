@@ -9,16 +9,19 @@ jobs:
   build:
     runs-on: [windows-latest]
     steps:
-      - name: Get latest CMake and ninja and MSVC
+      - name: Get Code
       - uses: actions/checkout@v2
+      - name: Get MSVC
       - uses: TheMrMilchmann/setup-mvsc-dev@v1
         with:
           arch: x64
+      - name: Get CMake
       - uses: lukka/get-cmake@latest
       - name: Build for windows
         run: |
             cmd
             .\build
+      - name: Upload
       - uses: actions/upload-artifact@v3
         with:
            name: build of windows
