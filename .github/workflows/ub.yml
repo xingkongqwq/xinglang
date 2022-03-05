@@ -16,6 +16,7 @@ jobs:
             cd build
             cmake ..
             make
+            ls
             cp ./xinglang.out ../bin/
             cd ..
       - name: Upload
