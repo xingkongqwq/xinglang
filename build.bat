@@ -5,3 +5,4 @@
 @nmake
 @copy .\xinglang.exe ..\bin\
 @cd ..
+@rd .\build /S /Q

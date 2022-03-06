@@ -23,6 +23,9 @@ You should have received a copy of the GNU Affero General Public License\n\
 along with this program.  If not, see <https://www.gnu.org/licenses/>.\n\
 ";
   NEED_INPUT_STRING = "The complier need a input (one file path) ";
+  regex VAR_MATCHING(
+    "^var(?:\\s)+(\\D|[^\\u4e00-\\u9fa5])(?:\\s)*=(?:\\s)*([^\\u4e00-\\u9fa5])"
+  );
   auto console = spdlog::stdout_color_mt("console");
   // Constant definition area end
   console->info(COPYRIGHT);
@@ -40,6 +43,15 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.\n\
        {
             if(strLine.empty())
                 continue;
-            console->info(strLine);
+			string &str = strLine;
+            sregex_iterator pos(str.cbegin(), str.cend(), VAR_MATCHING);
+            sregex_iterator end;
+            for(; pos!=end; ++pos)
+            {
+             cout << "0   " << pos->str(0) << endl;
+             cout << "1   " << pos->str(1) << endl;
+             cout << "2   " << pos->str(2) << endl;
+             cout << endl;
+            }
        }
 }

@@ -4,6 +4,7 @@
 #include "spdlog/sinks/stdout_color_sinks.h"
 #include <iostream>
 #include <fstream>
+#include <regex>
 #include <string>
 std::string COPYRIGHT;
 std::string NEED_INPUT_STRING;
